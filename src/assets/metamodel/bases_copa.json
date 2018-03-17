@@ -1,0 +1,164 @@
+[  
+    {
+        "titulo":"Bases Copa Weedkend",
+        "descripcion": [
+            {
+                "id":1,
+                "titulo" : "CONDICIONES DE INSCRIPCIÓN",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Al momento de la inscripción se pedirá que se identifique:"
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "El nombre del cultivador y su teléfono o mail.",
+                            "La variedad, la procedencia de la genética, el método de cultivo INTERIOR o EXTERIOR."
+                        ]
+                    }
+                ]
+            },
+            {
+                "id":2,
+                "titulo" : "RECEPCIÓN DE MUESTRAS:",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Inicio de recepción de Muestras: Jueves 30 de Junio 2016."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Fecha límite: 7 de Julio 2016."
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "Las muestras deben presentarse manicuradas, curadas, libres de moho y plagas.",
+                            "La organización se reserva el derecho de aceptar una muestra si la misma no cumple a su criterio con el mínimo de calidad solicitado."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Solicitar información para la entrega de muestras a inscripciones.copa@gmail.com"                        
+                        ]
+                    }
+                ]
+            },
+            {
+                "id":3,
+                "titulo" : "CATEGORÍA AUTOCULTIVADOR",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Los cultivadores podrán presentar hasta DOS muestras de al menos 5 gramos cada una."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Mecanismo de selección:"
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "El jurado pre-seleccionará las muestras en grupos por su calidad, separándolas en 3 categorías: A – B – C, en base a estos grupos se formarán las mesas de cata, de esta manera cada cultivador evaluará muestras de su mismo nivel de presentación, pudiendo juzgar mejor y así elegir más justamente las ganadoras.",
+                            "Como es costumbre se juzgará PRESENTACIÓN, AROMA, SABOR, EFECTO/POTENCIA, de cada una para promediar el puntaje final. El competidor entregará después de votar cada muestra su tarjeta final de puntaje, de esta forma se agilizan los tiempos para obtener los promedios y tener los resultados finales en el tiempo fijado. Cada ficha de votación tendrá el nombre del competidor que vota, de manera tal que se sabrá qué es lo que cada uno vota y quien no entrega la tarjeta.",
+                            "Las muestras que se repartirán a cada competidor en el evento de cata, serán exclusivamente de la categoría en la que quedó calificada su propia muestra."
+                        ]
+                    }
+                ]
+            }
+        ] 
+    },
+    {
+        "titulo":"Extracciones",
+        "descripcion": [
+            {
+                "id":1,
+                "titulo" : "CONDICIONES DE INSCRIPCIÓN",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Al momento de la inscripción se pedirá que se identifique:"
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "El nombre del cultivador y su teléfono o mail.",
+                            "La variedad, la procedencia de la genética, el método de cultivo INTERIOR o EXTERIOR."
+                        ]
+                    }
+                ]
+            },
+            {
+                "id":2,
+                "titulo" : "RECEPCIÓN DE MUESTRAS:",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Inicio de recepción de Muestras: Jueves 30 de Junio 2016."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Fecha límite: 7 de Julio 2016."
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "Las muestras deben presentarse manicuradas, curadas, libres de moho y plagas.",
+                            "La organización se reserva el derecho de aceptar una muestra si la misma no cumple a su criterio con el mínimo de calidad solicitado."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Solicitar información para la entrega de muestras a inscripciones.copa@gmail.com"                        
+                        ]
+                    }
+                ]
+            },
+            {
+                "id":3,
+                "titulo" : "CATEGORÍA AUTOCULTIVADOR",
+                "descripcion": [
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Los cultivadores podrán presentar hasta DOS muestras de al menos 5 gramos cada una."
+                        ]
+                    },
+                    {
+                        "tipo":"parrafo",
+                        "valores": [
+                            "Mecanismo de selección:"
+                        ]
+                    },
+                    {
+                        "tipo":"lista",
+                        "valores": [
+                            "El jurado pre-seleccionará las muestras en grupos por su calidad, separándolas en 3 categorías: A – B – C, en base a estos grupos se formarán las mesas de cata, de esta manera cada cultivador evaluará muestras de su mismo nivel de presentación, pudiendo juzgar mejor y así elegir más justamente las ganadoras.",
+                            "Como es costumbre se juzgará PRESENTACIÓN, AROMA, SABOR, EFECTO/POTENCIA, de cada una para promediar el puntaje final. El competidor entregará después de votar cada muestra su tarjeta final de puntaje, de esta forma se agilizan los tiempos para obtener los promedios y tener los resultados finales en el tiempo fijado. Cada ficha de votación tendrá el nombre del competidor que vota, de manera tal que se sabrá qué es lo que cada uno vota y quien no entrega la tarjeta.",
+                            "Las muestras que se repartirán a cada competidor en el evento de cata, serán exclusivamente de la categoría en la que quedó calificada su propia muestra."
+                        ]
+                    }
+                ]
+            }
+        ] 
+    }  
+]
