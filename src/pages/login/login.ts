@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
 import { Storage } from '@ionic/storage';
-
+import { AuthService} from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -16,12 +17,23 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginPage {
 
-  user:string;
-
-  password: string;
+  loginForm: FormGroup;
+  loginError: string;
+  data: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private storage: Storage) {
+    private storage: Storage, private authService: AuthService, fb: FormBuilder) {
+
+      this.data = {
+        logo: "../assets/imgs/logo/logo_menu.png",
+        subtitle        : "Bienvenido",
+        title           : "Accede a tu cuenta"
+      }
+
+      this.loginForm = fb.group({
+        email: ['', Validators.compose([Validators.required, Validators.email])],
+        password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      });
   }
 
   ionViewDidLoad() {
@@ -32,14 +44,29 @@ export class LoginPage {
   login(){
     // Your app login API web service call triggers 
 
-    if (this.user === this.password){
-      this.storage.set('userId', this.user);
-      this.navCtrl.push(TabsPage, {}, {animate: false});
-    }else{ 
-      console.log('Login is not correct');
-    }
+    let data = this.loginForm.value;
 
-    
+		if (!data.email) {
+			return;
+		}
+
+		let credentials = {
+			email: data.email,
+			password: data.password
+		};
+		this.authService.signInWithEmail(credentials)
+			.then(
+				() => { 
+          this.storage.set("user", this.transformUserId(data.email));
+          this.navCtrl.setRoot(HomePage);
+        },
+				error => this.loginError = error.message
+			);
+  }
+
+
+  private transformUserId(email:string) {
+    return email.replace('@', '_');
   }
 
 }

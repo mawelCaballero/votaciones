@@ -5,6 +5,7 @@ import { MyApp } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseconfig } from '../config';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -25,6 +26,8 @@ import { MedicinalPage } from '../pages/medicinal/medicinal';
 import { StandsPage } from '../pages/stands/stands';
 import { ActividadesPage } from '../pages/actividades/actividades';
 import { NavigateBackComponent } from '../components/navigate-back/navigate-back';
+import { AuthService } from '../services/auth.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,8 @@ import { NavigateBackComponent } from '../components/navigate-back/navigate-back
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseconfig)
+    AngularFireModule.initializeApp(firebaseconfig),
+    NgxErrorsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -74,7 +78,9 @@ import { NavigateBackComponent } from '../components/navigate-back/navigate-back
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuth
+    AngularFireAuth,
+    AngularFireDatabase,
+    AuthService
   ]
 })
 export class AppModule {}

@@ -1,23 +1,46 @@
+/*  #Style First Screen (Home)
+================================================*/
 page-welcome {
-#welcome{
-    background: color($colors, energy);
-    h1{
-        font-size: 52px;
-        margin-top:50px;
-        
+    .default-background {
+      background-image: url('../assets/imgs/background/bg_portada.jpg');
+      height: 100%;
+      width: 100%;
+      display: table;
+  
+      .ionic-descript {
+        display: table-cell;
+        vertical-align: middle;
+        //background-color: black;
+        //border-color: 1px solid red;
+  
+        h2[item-title] {
+          margin: 0;
+          color: theme-colors('textColors', 'secondaryBase') !important;
+          font-weight: bold !important;
+          font-size: 3em !important;
+        }
+  
+        h3[item-title] {
+          margin: 0;
+          color: theme-colors('textColors', 'secondaryBase') !important;
+          font-weight: bold !important;
+          font-size: 2em !important;
+        }
+  
+        p[item-subtitle] {
+          color: theme-colors('textColors', 'secondaryBase') !important;
+        }
+      }
+  
+      a {
+        color: theme-colors('textColors', 'accent') !important;
+        text-decoration: underline;
+        visibility: visible !important;
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        right: 25px;
+      }
     }
-
-    h1,h2{
-        color: white
-    }
-
-
-    .marginTop{
-        margin-top:150px;
-    }
-    .logo{
-        height: 100px;
-        align-content: center;
-    }
-}
-}
+  }
+  
