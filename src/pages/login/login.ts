@@ -26,6 +26,7 @@ export class LoginPage {
 
       this.data = {
         logo: "../assets/imgs/logo/logo_menu.png",
+        headerImage: '../assets/imgs/background-small/login.jpg',
         subtitle        : "Bienvenido",
         title           : "Accede a tu cuenta"
       }

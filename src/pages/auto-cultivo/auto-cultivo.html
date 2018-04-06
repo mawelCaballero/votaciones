@@ -4,16 +4,31 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Auto Cultivo</ion-title>
-    
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':true}">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title text-left>Auto-Cultivo</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content elastic-header>
+  <ion-item no-lines background-size id="elastic-header" [ngStyle]="{'background-image': 'url(' + data.headerImage + ')'}">
+      <div title-block *ngIf="data != null">
+          <h1 parallax-title text-wrap>{{data.title}}</h1>
+          <h1 parallax-title text-wrap>{{data.subtitle}}</h1>
+      </div>
+  </ion-item>
+  <ion-item-group *ngIf="data != null">
+      
+      <ion-item no-margin no-lines *ngFor="let item of data.items;let i = index">
+          <h2 parallax-subtitle margin-bottom text-wrap>{{item.title}}</h2>
+          <p class="paragraph" parallax-description text-wrap>{{item.paragraph1}}</p>
+          <p class="paragraph" parallax-description text-wrap>{{item.paragraph2}}</p>
+          <p class="paragraph" parallax-description text-wrap>{{item.paragraph3}}</p>
+          <p class="paragraph" parallax-description text-wrap>{{item.paragraph4}}</p>
+      </ion-item>
+  </ion-item-group>
 </ion-content>

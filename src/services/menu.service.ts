@@ -6,6 +6,9 @@ import { EquipoWeedkendPage } from '../pages/equipo-weedkend/equipo-weedkend';
 import { AsturiasPage } from '../pages/asturias/asturias';
 import { ObjetivosPage } from '../pages/objetivos/objetivos';
 import { AutoCultivoPage } from '../pages/auto-cultivo/auto-cultivo';
+import { MedicinalPage } from '../pages/medicinal/medicinal';
+import { StandsPage } from '../pages/stands/stands';
+import { ActividadesPage } from '../pages/actividades/actividades';
 
 @Injectable()
 export class MenuService implements IService {
@@ -24,6 +27,9 @@ export class MenuService implements IService {
         {"title" : "Porqué Asturias",   "icon" : "icon-dots-horizontal",    "component": AsturiasPage},
         {"title" : "Objetivos",         "icon" : "icon-dots-horizontal",    "component": ObjetivosPage},
         {"title" : "Autocultivo",       "icon" : "icon-dots-horizontal",    "component": AutoCultivoPage},
+        {"title" : "Medicinal",         "icon" : "icon-dots-horizontal",    "component": MedicinalPage},
+        {"title" : "Stands Weedkend",   "icon" : "icon-dots-horizontal",    "component": StandsPage},
+        {"title" : "Actividades",       "icon" : "icon-dots-horizontal",    "component": ActividadesPage},
       ];
     };
 
