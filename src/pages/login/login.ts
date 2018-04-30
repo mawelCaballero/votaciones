@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AuthService} from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomePage } from '../home/home';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -22,7 +23,8 @@ export class LoginPage {
   data: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private storage: Storage, private authService: AuthService, fb: FormBuilder) {
+    private storage: Storage, private authService: AuthService, fb: FormBuilder,
+    public events: Events) {
 
       this.data = {
         logo: "../assets/imgs/logo/logo_menu.png",
@@ -55,11 +57,11 @@ export class LoginPage {
 			email: data.email,
 			password: data.password
 		};
-		this.authService.signInWithEmail(credentials)
-			.then(
-				() => { 
-          this.storage.set("user", this.transformUserId(data.email));
+		this.authService.signInWithEmail(credentials).subscribe(
+				(response) => { 
+          this.storage.set("sessionData", response);
           this.navCtrl.setRoot(HomePage);
+          this.events.publish('user:logged');
         },
 				error => this.loginError = error.message
 			);

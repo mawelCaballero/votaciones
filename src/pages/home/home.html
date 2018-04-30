@@ -1,12 +1,16 @@
-<ion-header>
-  <ion-navbar>
-    <!--img ion-right src="assets/imgs/logo.png" class="navbarLogo" / -->
-    <ion-title>Home</ion-title>
+<ion-header header-ios>
+  <ion-navbar transparent [ngClass]="{'active':true}">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title text-left>Votaciones</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome <b><i>{{user}}</i></b></h2>
-  <button ion-button color="primary" (click)="logout()">Logout</button>
+  <h2>Bienvenido <b><i>{{user.user}}</i></b></h2>
+  <div *ngFor="let muestra of user.muestras">
+     <muestra [muestraId]="muestra" [userId]="user._id"></muestra>
+  </div>
 </ion-content>
 

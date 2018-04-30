@@ -1,5 +1,5 @@
 export interface IService {
-  getAllPages():Array<any>;
+  getAllPages(isLogged:boolean):Array<any>;
   getTitle():string;
   getId():string;
 }

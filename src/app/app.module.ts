@@ -2,10 +2,8 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { firebaseconfig } from '../config';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { HttpModule } from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -26,8 +24,18 @@ import { MedicinalPage } from '../pages/medicinal/medicinal';
 import { StandsPage } from '../pages/stands/stands';
 import { ActividadesPage } from '../pages/actividades/actividades';
 import { NavigateBackComponent } from '../components/navigate-back/navigate-back';
+import { MuestraComponent } from '../components/muestra/muestra.component';
+import { IndicadorComponent } from '../components/indicador/indicador.component';
+import { VotoComponent } from '../components/voto/voto.component';
+
 import { AuthService } from '../services/auth.service';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { UsuarioService } from '../services/usuario.service';
+
+import { MuestraService } from '../services/muestra.service';
+import { IndicadorService } from '../services/indicador.service';
+import { VotoService } from '../services/voto.service';
+
+import { Indicador } from '../model/indicador';
 
 @NgModule({
   declarations: [
@@ -46,14 +54,17 @@ import { AngularFireDatabase } from 'angularfire2/database';
     MedicinalPage,
     StandsPage,
     ActividadesPage,
-    NavigateBackComponent
+    NavigateBackComponent,
+    MuestraComponent,
+    IndicadorComponent,
+    VotoComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseconfig),
-    NgxErrorsModule
+    NgxErrorsModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -72,15 +83,20 @@ import { AngularFireDatabase } from 'angularfire2/database';
     MedicinalPage,
     StandsPage,
     ActividadesPage,
-    NavigateBackComponent
+    NavigateBackComponent, 
+    MuestraComponent,
+    IndicadorComponent,
+    VotoComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuth,
-    AngularFireDatabase,
-    AuthService
+    AuthService,
+    UsuarioService,
+    MuestraService,
+    IndicadorService,
+    VotoService
   ]
 })
 export class AppModule {}

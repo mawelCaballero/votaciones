@@ -3,6 +3,8 @@ import { NavController, App, Nav } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AuthService } from '../../services/auth.service';
 import { WelcomePage } from '../welcome/welcome';
+import { UsuarioService } from '../../services/usuario.service';
+import { User } from '../../model/user';
 
 export interface PageInterface {
   title: string;
@@ -20,29 +22,26 @@ export class HomePage {
 
   @ViewChild(Nav) nav: Nav;
 
-  pages: PageInterface[] = [
-    { title: 'Tab 1', pageName: 'TabsPage', tabComponent: 'Tab1Page', index: 0, icon: 'home' },
-    { title: 'Tab 2', pageName: 'TabsPage', tabComponent: 'Tab2Page', index: 1, icon: 'contacts' },
-    { title: 'Tab 3', pageName: 'SpecialPage', icon: 'shuffle' },
-  ];
-
-  user: string;
+  user = {};
 
   constructor(public navCtrl: NavController, public app: App, 
-    private storage: Storage, private auth: AuthService) {
-      this.storage.get('userId').then(
-        (val) => {
-          this.user = val;    
+    private storage: Storage, private auth: AuthService, private userService: UsuarioService) {
+      this.storage.get('sessionData').then(
+        (sessionData) => {
+  
+            this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
+              userResponse => {
+                this.user = userResponse;
+              },
+              error => {
+                console.log(error);
+              });
+          
+
+          
         }
       );
 
   }
-
-  logout(){
-    // Remove API token 
-    this.auth.signOut();
-	  this.navCtrl.setRoot(WelcomePage);
-
-}
 
 }
