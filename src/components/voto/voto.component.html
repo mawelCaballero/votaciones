@@ -1,4 +1,6 @@
 <ion-item *ngIf="!isLoading">
+    <ion-label *ngIf="valoracion">Has votado: {{valoracion}}</ion-label>
+    
     <ion-range min="0" step="1" max="10" snaps="true" [(ngModel)]="valoracion" 
         (ionBlur)='change()' [disabled]="isDisabled()">
     <ion-label range-left class="small-text">0</ion-label>
