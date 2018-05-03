@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
-import { Muestra } from './../../model/muestra';
+import { Component, Input, OnChanges } from '@angular/core';
 import { MuestraService } from './../../services/muestra.service';
 import { Storage } from '@ionic/storage';
 

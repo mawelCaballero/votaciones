@@ -34,9 +34,6 @@ import { UsuarioService } from '../services/usuario.service';
 import { MuestraService } from '../services/muestra.service';
 import { IndicadorService } from '../services/indicador.service';
 import { VotoService } from '../services/voto.service';
-
-import { Indicador } from '../model/indicador';
-
 @NgModule({
   declarations: [
     MyApp,

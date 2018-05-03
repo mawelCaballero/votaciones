@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { Indicador } from './../../model/indicador';
 import { IndicadorService } from './../../services/indicador.service';
 import { Storage } from '@ionic/storage';
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Voto } from '../model/voto';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';

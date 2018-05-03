@@ -1,14 +1,12 @@
 
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { wsconfig } from './../config';
 import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
 export class AuthService {
-	private user;
-
 	constructor(private http: Http) {
 	}
 
@@ -29,7 +27,9 @@ export class AuthService {
 
   
 	private getHeaders() {
-		return new Headers(  { 'Accept': 'application/json, text/plain, */*',
-		'Content-Type': 'application/json'});
+		return new Headers(  { 
+		'Accept': 'application/json, */*',
+		'Access-Control-Allow-Origin': '*'
+	 	} );
 	}
 }

@@ -60,16 +60,11 @@ export class LoginPage {
 		this.authService.signInWithEmail(credentials).subscribe(
 				(response) => { 
           this.storage.set("sessionData", response);
+          console.log(response);
           this.navCtrl.setRoot(HomePage);
           this.events.publish('user:logged');
         },
 				error => this.loginError = error.message
 			);
   }
-
-
-  private transformUserId(email:string) {
-    return email.replace('@', '_');
-  }
-
 }

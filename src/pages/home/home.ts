@@ -1,10 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, App, Nav } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import { AuthService } from '../../services/auth.service';
-import { WelcomePage } from '../welcome/welcome';
 import { UsuarioService } from '../../services/usuario.service';
-import { User } from '../../model/user';
 
 export interface PageInterface {
   title: string;
@@ -25,10 +22,11 @@ export class HomePage {
   user = {};
 
   constructor(public navCtrl: NavController, public app: App, 
-    private storage: Storage, private auth: AuthService, private userService: UsuarioService) {
+    private storage: Storage, private userService: UsuarioService) {
       this.storage.get('sessionData').then(
         (sessionData) => {
   
+          if (sessionData.token){
             this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
               userResponse => {
                 this.user = userResponse;
@@ -36,6 +34,8 @@ export class HomePage {
               error => {
                 console.log(error);
               });
+          
+          }
           
 
           

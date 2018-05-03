@@ -1,5 +1,3 @@
-import { Indicador } from './indicador';
-
 export class Muestra {
 
     constructor(_id: string, id: string, description: string,

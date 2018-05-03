@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
-import { Muestra } from '../model/muestra';
+import { Http } from '@angular/http';
 import { User } from '../model/user';
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
@@ -8,7 +7,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/catch';
-import { Indicador } from '../model/indicador';
 import { wsconfig } from './../config';
 import { HttpUtils } from './../utils/http-utils';
 

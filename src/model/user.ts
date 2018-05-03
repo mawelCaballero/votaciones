@@ -1,5 +1,3 @@
-import { Muestra } from './muestra';
-
 export class User {
 
     constructor(_id: string,
