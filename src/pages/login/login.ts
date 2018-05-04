@@ -59,10 +59,11 @@ export class LoginPage {
 		};
 		this.authService.signInWithEmail(credentials).subscribe(
 				(response) => { 
-          this.storage.set("sessionData", response);
-          console.log(response);
-          this.navCtrl.setRoot(HomePage);
-          this.events.publish('user:logged');
+          this.storage.set("sessionData", response).then((data)=> {
+            this.navCtrl.setRoot(HomePage);
+            this.events.publish('user:logged');
+          });
+          
         },
 				error => this.loginError = error.message
 			);

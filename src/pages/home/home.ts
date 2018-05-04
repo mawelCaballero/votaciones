@@ -3,7 +3,7 @@ import { NavController, App, Nav } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UsuarioService } from '../../services/usuario.service';
 
-export interface PageInterface {
+export interface PageInterface{
   title: string;
   pageName: string;
   tabComponent?: any;
@@ -23,25 +23,28 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public app: App, 
     private storage: Storage, private userService: UsuarioService) {
-      this.storage.get('sessionData').then(
-        (sessionData) => {
-  
-          if (sessionData.token){
-            this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
-              userResponse => {
-                this.user = userResponse;
-              },
-              error => {
-                console.log(error);
-              });
-          
-          }
-          
+  }
 
-          
+  ngOnInit() {
+    console.log('Init Home.ts');
+    this.storage.get('sessionData').then(
+      (sessionData) => {
+        
+        if (sessionData && sessionData.token){
+          this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
+            userResponse => {
+              this.user = userResponse;
+            },
+            error => {
+              console.log(error);
+            });
+        
         }
-      );
+        
 
+        
+      }
+    );
   }
 
 }
