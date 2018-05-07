@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events } from 'ionic-angular';
+import { NavController, NavParams, Events, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AuthService} from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -24,7 +24,8 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private storage: Storage, private authService: AuthService, fb: FormBuilder,
-    public events: Events) {
+    public events: Events, 
+    public alertCtrl: AlertController) {
 
       this.data = {
         logo: "../assets/imgs/logo/logo_menu.png",
@@ -65,7 +66,22 @@ export class LoginPage {
           });
           
         },
-				error => this.loginError = error.message
+				error =>  {
+          this.showAlert(error._body);
+          
+        }
 			);
   }
+
+
+
+  showAlert(msg:string) {
+    let alert = this.alertCtrl.create({
+      title: 'Error!',
+      subTitle: msg,
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+  
 }
