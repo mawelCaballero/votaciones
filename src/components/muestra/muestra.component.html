@@ -8,7 +8,8 @@
         <p>{{muestra?.categoria}}</p>
         <ion-list *ngIf="muestra?.indicadores">
             <div *ngFor="let indicador of muestra.indicadores">
-                <indicador [indicadorId]="indicador" [muestraId]="muestra._id" [userId]="userId"></indicador>
+                <indicador [indicadorId]="indicador" [muestraId]="muestra._id" [userId]="userId" 
+                [votado]="votado"></indicador>
             </div>
         </ion-list>
     </ion-card-content>

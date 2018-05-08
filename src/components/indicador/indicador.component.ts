@@ -26,6 +26,9 @@ export class IndicadorComponent implements OnChanges{
 
   token:string;
 
+  @Input()
+  votado:boolean;
+
   indicador = {};
 
   constructor(private storage: Storage, 
@@ -38,7 +41,6 @@ export class IndicadorComponent implements OnChanges{
       this.storage.get('sessionData').then(
         (sessionData) => {
           this.token = sessionData.token;
-          console.log(this.indicadorId);
           this.indicadorService.getIndicadorById(sessionData.token, this.indicadorId).subscribe(
             indicadorResponse => {
               this.indicador = indicadorResponse;

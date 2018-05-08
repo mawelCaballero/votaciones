@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, App, Nav } from 'ionic-angular';
+import { NavController, App, Nav, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UsuarioService } from '../../services/usuario.service';
+import { User } from '../../model/user';
 
 export interface PageInterface{
   title: string;
@@ -19,21 +20,27 @@ export class HomePage {
 
   @ViewChild(Nav) nav: Nav;
 
-  user = {};
+  user: User;
+
+  token: string;
+
+  voto:boolean = false;
 
   constructor(public navCtrl: NavController, public app: App, 
-    private storage: Storage, private userService: UsuarioService) {
+    private storage: Storage, private userService: UsuarioService, 
+    public alertCtrl: AlertController) {
   }
 
   ngOnInit() {
-    console.log('Init Home.ts');
     this.storage.get('sessionData').then(
       (sessionData) => {
         
         if (sessionData && sessionData.token){
+          this.token = sessionData.token;
           this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
             userResponse => {
-              this.user = userResponse;
+              this.user = this.bindUser(userResponse);
+              this.voto = this.user.voto;
             },
             error => {
               console.log(error);
@@ -47,4 +54,52 @@ export class HomePage {
     );
   }
 
+  private bindUser(response: any) {
+    debugger;
+      return new User(
+        response._id, 
+        response.id,
+        response.user, 
+        response.pass, 
+        response.description, 
+        response.email, 
+        response.voto, 
+        response.tipo_votante,
+        response.muestras
+    );
+  }
+
+  votar() {
+    console.log('El usuario cierra sus votaciones');
+
+    let alert = this.alertCtrl.create({
+      title: '¿Estas seguro de acabar las votaciones?',
+      subTitle: 'En el momento que le des a OK no podrás volver a votar, piénsatelo bien!',
+      buttons: [
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Ok',
+          handler: data => {
+            this.doVoto();
+            
+          }
+        }
+      ]    });
+    alert.present();
+
+
+    
+  }
+
+    private doVoto(){
+      this.userService.votar(this.token, this.user._id).subscribe(
+        userResponse => {
+          this.voto = userResponse.voto;
+        },
+        error => {
+          console.log(error);
+        });
+    }
 }

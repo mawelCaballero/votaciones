@@ -23,15 +23,18 @@ export class MuestraComponent implements OnChanges{
   @Input()
   userId:string;
 
+  @Input()
+  votado: boolean;
+
   constructor(private storage: Storage, private muestraService: MuestraService) {
   }
 
   ngOnChanges(){
 
     if (this.muestraId){
+      console.log('Votado en muestra?', this.votado);
       this.storage.get('sessionData').then(
         (sessionData) => {
-          console.log(this.muestraId);
           this.muestraService.getMuestraById(sessionData.token, this.muestraId).subscribe(
             muestraResponse => {
               this.muestra = muestraResponse;

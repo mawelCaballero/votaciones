@@ -8,9 +8,13 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Bienvenido <b><i>{{user.user}}</i></b></h2>
-  <div *ngFor="let muestra of user.muestras">
-     <muestra [muestraId]="muestra" [userId]="user._id"></muestra>
+  <div *ngIf="user">
+      <h2>Bienvenido <b><i>{{user.user}}</i></b></h2>
+      <div *ngFor="let muestra of user.muestras">
+         <muestra [muestraId]="muestra" [userId]="user._id" [votado]="voto"></muestra>
+      </div>
+      <button ion-button full round (click)="votar()">Enviar</button> 
   </div>
+  
 </ion-content>
 

@@ -23,34 +23,56 @@ export class EquipoWeedkendPage {
 
     this.data =  
     { 
-      headerTitle: "Datos Técnicos",
+      headerTitle: "Equipo Weedkend",
       headerImage: '../assets/imgs/background-small/detalles_tecnicos.jpg',
-      title: "The Weedkend.",
-      subtitle: "9 - 10 Junio. El Jardin - Gijón",
+      title: "¿Quienes Somos?",
+      subtitle: "",
       items: [
           {
               id: 1,
-              title: 'Datos de Interés',
-              subtitle: 'Nombre : Weedkend'  +
-                        'Fechas: 9 y 10 de junio' +
-                        'Periodicidad: Anual' +
-                        'Carácter: Informativo y lúdico' +
-                        'Horario: Apertura a las 12 hasta cierre.' +
-                        'Coste Entrada: 8 - 12 €' +
-                        'Emplazamiento: El Jardin' +
-                        'Ubicación: Dirección Camino Los Manzanos, 37. 33203. Gijón, Asturias' +
-                        'Superficie: 3.000m2'
+              title: '',
+              subtitle: 'Somos un equipo formado por jóvenes proactivos, que, desde sus distintos enfoques profesionales, han visto en el cáñamo un sector en claro auge y con grandes posibilidades de explotación.'
           },
           {
-              id: 2,
-              title: 'Perfil Expositores',
-              subtitle: 'Las empresas y marcas que colaboran con nosotros en la organización de nuestros eventos, presentan características comunes; todos ellos están relacionadas con los usos del cáñamo, tanto lúdicos y medicinales, como otras aplicaciones no tan conocidas de esta planta.'
+            id: 2,
+            title: '',
+            subtitle: 'A consecuencia del crecimiento del sector, el evento ha ampliado su oferta dando lugar a propuestas alternativas, ecológicas y respetuosas con el medio ambiente, que siendo un punto de interés en la ideología de nuestro equipo cuentan a día de hoy con cada vez más seguidores.'
           },
           {
             id: 3,
-            title: 'Perfil Visitante',
-            subtitle: 'El aumento exponencial y progresivo del público asistente al evento nos muestra que quienes acuden a nuestro evento, repiten; esto también ha provocado una mayor heterogeneidad en el público asistente, el perfil de nuestro público sigue siendo por un lado, de hombres y mujeres menores de 40 años, con un nivel socio-cultural medio, interés en ampliar sus conocimientos respecto a los usos del cáñamo y abiertamente interesado en invertir en productos relativos al sector; así mismo el público joven continúa representando también un porcentaje elevado del número de asistentes al evento.'
+            title: '',
+            subtitle: 'La marca y quienes la forman buscan promover la información y la formación sobre los usos del cáñamo y del cannabis medicinal; siendo respaldados por especialistas médicos y representantes de múltiples partidos políticos.'
+          },
+          {
+            id: 4,
+            title: '',
+            subtitle: 'Así mismo, nuestros valores empresariales son un claro reflejo del compromiso profesional que mantenemos con todos los colaboradores y asistentes, éstos son:' +
+            'Compromiso: con la calidad del servicio y los valores y objetivos de la empresa.' +
+            'Originalidad y Proactividad: nos caracterizamos por la búsqueda de la innovación y la ampliación de posibilidades de negocio en un sector en claro apogeo.' +
+            'Perseverancia: mantener nuestros objetivos y trabajar en pos de la mejora, son una constante en nuestra forma de trabajar.'+
+            'Integridad y Transparencia: desarrollamos nuestra labor dentro del marco de la ética, la honestidad, la confianza y la transparencia.'+
+            'Trabajo en equipo: alcanzamos nuestras metas trabajando de manera colaborativa, logrando mejores resultados gracias a un ambiente positivo.' +
+            'Comunicación: vías de comunicación abiertas y efectivas nos permiten gestionar de manera eficiente la marca y sus servicios..' + 
+            'Aprendizaje: en un sector en constante cambio y aún en desarrollo, aprender de las experiencias y mejorar el servicio supone nuestra diferenciación respecto al resto.'
+
+          },
+          {
+            id: 5,
+            title: '',
+            subtitle: 'Nuestros valores influyen constantemente en nuestra forma de actuar y en la propia organización de la empresa. La creación de responsables y coordinadores de equipo se han hecho necesarias tras el evento realizado en 2015, para garantizar nuestro compromiso con la calidad; así disponemos a día de hoy con una estructuración total en la organización del trabajo. Habiéndose creado departamentos y equipos de trabajo con tares exclusivas.'
+          },
+          {
+            id: 6,
+            title: '',
+            subtitle: 'Equipo directivo: Germán González' + 
+            'Departamento de comunicación y marketing: Jose Marqués ' + 
+            'Departamento administrativo: Víctor Roche ' +
+            'Departamento comercial: Jose Ignacio Méndez Trejo' +
+            'Equipo de diseño e ilustración: Silvia Villalta ' +
+            'Director de producción musical: Raúl Sánchez ' +
+            'Regidor de escenario: Técnico de sonio e iluminación Jorge Sánchez.'
           }
+
       ]
     };
 }

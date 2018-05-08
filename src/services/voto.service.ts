@@ -37,6 +37,26 @@ export class VotoService {
 
   }
 
+
+  updateVoto(token:string, userId: string, muestraId:string, 
+    indicadorId: string, valoracion: Number) {
+
+        return this.http.post( wsconfig.wsUrl + 'updateVoto',
+        { 'idVotante': userId, 
+          'idMuestra': muestraId, 
+          'idIndicador': indicadorId, 
+          'valoracion': valoracion }, HttpUtils.getHeaders(token)).map(
+              response => {
+                return this.bindVoto(response);
+            },
+            error => {
+                console.log('something was wrong, ', error);
+            }
+          ); 
+
+
+  }
+
   getVotorByUserMuestraIndicador(token:string, userId: string, muestraId:string, 
     indicadorId: string ): Observable<Voto> {
     return this.http.get(wsconfig.wsUrl + `voto/${userId}/${muestraId}/${indicadorId}`, 

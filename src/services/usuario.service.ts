@@ -29,6 +29,19 @@ export class UsuarioService {
     );
   }
 
+  votar(token:string, userId: string ): Observable<User> {
+    console.log(token);
+    return this.http.get(wsconfig.wsUrl + `votar/${userId}`  , 
+    HttpUtils.getHeaders(token) ).map(
+        response => {
+          return this.bindVotante(response);
+        },
+        error => {
+            console.log('something was wrong, ', error);
+        }
+    );
+  }
+
   private bindVotante(response: any): User {
     
     const apiResponse = JSON.parse(response['_body']);
