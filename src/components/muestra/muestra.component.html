@@ -1,16 +1,21 @@
 
 <ion-card>
-    <ion-item>
-        <h2>{{muestra?.descripcion}}</h2>
+    <ion-item class="card-header" (click)="setExpandable()">
+        <ion-avatar item-start>
+            <img src="../assets/imgs/logo/logo_menu.png">
+        </ion-avatar>
+        <h2 class="card-title">{{muestra?.descripcion}}</h2>
     </ion-item>
-    <img src="{{muestra?.img}}" class="muestra_img"/>
-    <ion-card-content>
-        <p>{{muestra?.categoria}}</p>
-        <ion-list *ngIf="muestra?.indicadores">
-            <div *ngFor="let indicador of muestra.indicadores">
-                <indicador [indicadorId]="indicador" [muestraId]="muestra._id" [userId]="userId" 
-                [votado]="votado"></indicador>
-            </div>
-        </ion-list>
-    </ion-card-content>
+    <ion-item *ngIf="expand">
+        <img src="{{muestra?.img}}" class="muestra_img"/>
+        <ion-card-content>
+            <p>{{muestra?.categoria}}</p>
+            <ion-list *ngIf="muestra?.indicadores">
+                <div *ngFor="let indicador of muestra.indicadores">
+                    <indicador [indicadorId]="indicador" [muestraId]="muestra._id" [userId]="userId" 
+                    [votado]="votado"></indicador>
+                </div>
+            </ion-list>
+        </ion-card-content>
+    </ion-item>
 </ion-card>    

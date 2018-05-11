@@ -20,6 +20,8 @@ export class MuestraComponent implements OnChanges{
 
   muestra = {};
 
+  expand:boolean = false;
+
   @Input()
   userId:string;
 
@@ -48,5 +50,10 @@ export class MuestraComponent implements OnChanges{
     }
       
     
+  }
+
+
+  setExpandable(){
+    this.expand = !this.expand;
   }
 }

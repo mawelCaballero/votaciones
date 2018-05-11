@@ -13,7 +13,7 @@
       <div *ngFor="let muestra of user.muestras">
          <muestra [muestraId]="muestra" [userId]="user._id" [votado]="voto"></muestra>
       </div>
-      <button ion-button full round (click)="votar()">Enviar</button> 
+      <button class="button_vote" ion-button full outline (click)="votar()">Enviar</button> 
   </div>
   
 </ion-content>

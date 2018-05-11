@@ -1,16 +1,26 @@
 ion-card {
     position: relative;
     text-align: center;
+    
   }
 
+
+
+  ion-avatar {
+    background-size: cover;
+    background-position: center;
+    @include darkening-blend-mode;
+    
+}
   .card-title {
     position: absolute;
     top: 36%;
-    font-size: 2.0em;
+    font-size: 1.5em!important;
     width: 100%;
-    font-weight: bold;
+    font-weight: bold !important;
     color: #fff;
   }
+  
 
   .card-subtitle {
     font-size: 1.0em;
@@ -18,4 +28,8 @@ ion-card {
     top: 52%;
     width: 100%;
     color: #fff;
+  }
+
+  .card-header {
+    background-color: #21e7b6;
   }
