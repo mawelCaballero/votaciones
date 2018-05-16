@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, App, Nav, AlertController } from 'ionic-angular';
+import { NavController, App, Nav, AlertController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { UsuarioService } from '../../services/usuario.service';
 import { User } from '../../model/user';
@@ -26,15 +26,24 @@ export class HomePage {
 
   voto:boolean = false;
 
+  
+
   constructor(public navCtrl: NavController, public app: App, 
     private storage: Storage, private userService: UsuarioService, 
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    private loadingCtrl: LoadingController) {
   }
 
   ngOnInit() {
+
+    const loading = this.loadingCtrl.create({
+      content: 'Por favor, espere...'
+    });  
+
+    loading.present();
     this.storage.get('sessionData').then(
       (sessionData) => {
-        
+        loading.dismiss();
         if (sessionData && sessionData.token){
           this.token = sessionData.token;
           this.userService.getUserByUser(sessionData.token, sessionData.user._id).subscribe(
@@ -70,8 +79,6 @@ export class HomePage {
   }
 
   votar() {
-    console.log('El usuario cierra sus votaciones');
-
     let alert = this.alertCtrl.create({
       title: '¿Estas seguro de acabar las votaciones?',
       subTitle: 'En el momento que le des a OK no podrás volver a votar, piénsatelo bien!',

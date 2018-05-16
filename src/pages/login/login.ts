@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Events, AlertController } from 'ionic-angular';
+import { NavController, NavParams, Events, AlertController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AuthService} from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -25,7 +25,8 @@ export class LoginPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private storage: Storage, private authService: AuthService, fb: FormBuilder,
     public events: Events, 
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    private loadingCtrl: LoadingController) {
 
       this.data = {
         logo: "../assets/imgs/logo/logo_menu.png",
@@ -52,14 +53,22 @@ export class LoginPage {
 
 		if (!data.email) {
 			return;
-		}
+    }
+    
+    let loading = this.loadingCtrl.create({
+      content: 'Por favor, espere...'
+    });
 
 		let credentials = {
 			email: data.email,
 			password: data.password
-		};
+    };
+    
+    loading.present();
+
 		this.authService.signInWithEmail(credentials).subscribe(
-				(response) => { 
+        (response) => { 
+          loading.dismiss();
           this.storage.set("sessionData", response).then((data)=> {
             this.navCtrl.setRoot(HomePage);
             this.events.publish('user:logged');
@@ -67,9 +76,9 @@ export class LoginPage {
           
         },
 				error =>  {
-          this.showAlert(error._body);
-          
-        }
+         loading.dismiss();
+         this.showAlert("Algo no ha ido bien, lo siento. Intentalo de nuevo :) ");
+          }
 			);
   }
 

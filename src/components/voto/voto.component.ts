@@ -48,12 +48,13 @@ export class VotoComponent implements OnChanges{
       console.log('Votado? ', this.votado);
       this.votoService.getVotorByUserMuestraIndicador(this.token,this.userId, this.muestraId, this.indicadorId).subscribe(
         votoResponse => {
+          this.isLoading = false;
           this.voto = votoResponse;
           if (votoResponse && votoResponse.valoracion){
             this.valoracion = votoResponse.valoracion;
             this.idVoto = votoResponse._id;
           }
-          this.isLoading = false;
+          
                   },
         error => {
           console.log(error);
@@ -65,10 +66,7 @@ export class VotoComponent implements OnChanges{
   }
 
   change() {
-    console.log('Event triggered');
-
     if (this.idVoto){
-      console.log('Actualizamos el voto');
         this.updateVoto();
     } else {
         this.createVoto();
@@ -80,7 +78,6 @@ export class VotoComponent implements OnChanges{
   isDisabled() {
     return !_.isNil(this.voto) && !_.isNil(this.voto._id)?true:false;
   }
-
 
   private createVoto(){
     this.votoService.createVoto(this.token,this.userId, this.muestraId, this.indicadorId, this.valoracion).subscribe(

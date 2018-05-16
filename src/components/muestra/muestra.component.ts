@@ -20,6 +20,8 @@ export class MuestraComponent implements OnChanges{
 
   muestra = {};
 
+  loading:boolean = true;
+
   expand:boolean = false;
 
   @Input()
@@ -39,6 +41,7 @@ export class MuestraComponent implements OnChanges{
         (sessionData) => {
           this.muestraService.getMuestraById(sessionData.token, this.muestraId).subscribe(
             muestraResponse => {
+              this.loading = false;
               this.muestra = muestraResponse;
             },
             error => {

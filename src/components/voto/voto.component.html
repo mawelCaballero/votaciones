@@ -1,12 +1,15 @@
-<ion-item *ngIf="!isLoading">
-    <ion-label *ngIf="valoracion">Has votado: {{valoracion}}</ion-label>
-    
-    <ion-range min="0" step="1" max="10" snaps="true" [(ngModel)]="valoracion" 
-        (ionBlur)='change()' [disabled]="votado">
-    <ion-label range-left class="small-text">0</ion-label>
-    <ion-label range-right>10</ion-label>
-    </ion-range>
-<ion-item>
 <ion-item *ngIf="isLoading">
-    <p>Cargando ...</p>
+        <ion-icon ios="ios-ice-cream" md="md-ice-cream"></ion-icon>
+        <h2>Cargando ... </h2>
 </ion-item>
+<ion-list *ngIf="!isLoading" >  
+    <ion-item>
+        <ion-range item-start min="0" step="1" max="10" snaps="true" [(ngModel)]="valoracion" 
+            (ionBlur)='change()' [disabled]="votado">
+        <ion-label range-left class="small-text">0</ion-label>
+        <ion-label range-right>10</ion-label>
+        </ion-range>
+        <ion-label  class="votado" width-25 *ngIf="valoracion">{{valoracion}}</ion-label>
+    </ion-item>
+<ion-list>
+

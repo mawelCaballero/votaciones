@@ -6,6 +6,9 @@
         </ion-avatar>
         <h2 class="card-title">{{muestra?.descripcion}}</h2>
     </ion-item>
+    <ion-item *ngIf="loading">
+        Cargando ...
+    </ion-item>
     <ion-item *ngIf="expand">
         <img src="{{muestra?.img}}" class="muestra_img"/>
         <ion-card-content>
