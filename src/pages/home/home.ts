@@ -64,7 +64,6 @@ export class HomePage {
   }
 
   private bindUser(response: any) {
-    debugger;
       return new User(
         response._id, 
         response.id,

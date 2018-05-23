@@ -49,7 +49,7 @@ export class MenuService implements IService {
 
     getDataForTheme = () => {
       return {
-        "background": "../assets/imgs/background/bg_menu.jpg",
+        "background": "../assets/imgs/background/bg_menu2.jpg",
         "image": "../assets/imgs/logo/logo_menu.png",
         "title": "The# Weedkend",
         "description": "El evento canabico más grande de la zona norte de España"
