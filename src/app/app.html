@@ -3,7 +3,7 @@
   <!-- Menu Main Top -->
   <ion-menu [content]="content" *ngIf="params != null">
       <ion-header>
-          <div header-background-image padding [ngStyle]="{'background-image': 'url(' + params.background + ')'}">
+          <div header-background-image padding [ngClass]="params.class" [ngStyle]="{'background-image': 'url(' + params.background + ')'}">
               <img [src]="params.image">
               <h2 ion-text color="light" header-title>{{params.title}}</h2>
               <p>{{params.description}}</p>

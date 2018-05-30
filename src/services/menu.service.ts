@@ -51,6 +51,7 @@ export class MenuService implements IService {
       return {
         "background": "../assets/imgs/background/bg_menu2.jpg",
         "image": "../assets/imgs/logo/logo_menu.png",
+        "class":"customMainPic",
         "title": "The# Weedkend",
         "description": "El evento canabico más grande de la zona norte de España"
       };

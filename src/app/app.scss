@@ -37,3 +37,12 @@
 [main-menu] .item-inner {
     margin-left: 6px !important;
 }
+
+.customMainPic{
+    height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-color: #00ff36 !important;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+}
